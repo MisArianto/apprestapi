@@ -8,4 +8,5 @@ module.exports = (app) => {
     app.route('/edit/:id').get(controller.edit)
     app.route('/store').post(controller.store)
     app.route('/update').put(controller.update)
+    app.route('/delete').delete(controller.destroy)
 }

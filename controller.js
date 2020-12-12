@@ -61,6 +61,21 @@ exports.update = (req, res) => {
                 console.log(error)
             } else {
                 response.ok('Berhasil Merubah data', res)
-            } k
+            }
+        })
+}
+
+// membuat hapus data
+exports.destroy = (req, res) => {
+
+    let id = req.body.id
+
+    connection.query(`DELETE FROM mahasiswas  WHERE id = ?`, [id],
+        (error, rows, fields) => {
+            if (error) {
+                console.log(error)
+            } else {
+                response.ok('Berhasil Menghapus data', res)
+            }
         })
 }
