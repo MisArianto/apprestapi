@@ -7,4 +7,5 @@ module.exports = (app) => {
     app.route('/show').get(controller.show)
     app.route('/edit/:id').get(controller.edit)
     app.route('/store').post(controller.store)
+    app.route('/update').put(controller.update)
 }

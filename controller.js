@@ -46,3 +46,21 @@ exports.store = (req, res) => {
             }
         })
 }
+
+// merubah data berdasarkan id
+exports.update = (req, res) => {
+
+    let id = req.body.id
+    let nim = req.body.nim
+    let nama = req.body.nama
+    let jurusan = req.body.jurusan
+
+    connection.query(`UPDATE mahasiswas SET nim = ?, nama = ?, jurusan = ? WHERE id = ?`, [nim, nama, jurusan, id],
+        (error, rows, fields) => {
+            if (error) {
+                console.log(error)
+            } else {
+                response.ok('Berhasil Merubah data', res)
+            } k
+        })
+}
