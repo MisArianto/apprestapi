@@ -29,3 +29,20 @@ exports.edit = (req, res) => {
         }
     })
 }
+
+// menambah data mahasiswa
+exports.store = (req, res) => {
+    let nim = req.body.nim
+    let nama = req.body.nama
+    let jurusan = req.body.jurusan
+
+    connection.query(`INSERT INTO mahasiswas (nim, nama, jurusan) VALUES (?, ?, ?)`,
+        [nim, nama, jurusan],
+        (error, rows, fields) => {
+            if (error) {
+                console.log(error)
+            } else {
+                response.ok('Berhasil Menambah data', res)
+            }
+        })
+}
