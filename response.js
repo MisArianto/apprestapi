@@ -1,11 +1,11 @@
 'use strict'
 
-exports.ok = (values, res) => {
-    let data = {
+exports.ok = (data, res) => {
+    let output = {
         'status': 200,
-        'values': values
+        'data': data
     }
 
-    res.json(data)
+    res.json(output)
     res.end()
 }
