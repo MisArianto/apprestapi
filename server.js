@@ -8,8 +8,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // panggil routers
-let routers = require('./router')
-routes(app)
+var routers = require('./routers')
+routers(app)
 
 app.listen(PORT, () => {
     console.log(`Server started in port ${PORT}`)
