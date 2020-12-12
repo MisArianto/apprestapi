@@ -79,3 +79,28 @@ exports.destroy = (req, res) => {
             }
         })
 }
+
+// tampilkan mata kuliah group
+exports.show_group_mata_kuliah = (req, res) => {
+    connection.query(`
+        SELECT 
+        m.id,
+        m.nim,
+        m.nama,
+        m.jurusan,
+        mk.mata_kuliah,
+        mk.sks
+        FROM krs AS k
+        JOIN mahasiswas AS m ON m.id = k.mahasiswa_id
+        JOIN mata_kuliah AS mk ON mk.id = k.mata_kuliah_id
+        WHERE k.mata_kuliah_id = mk.id
+        AND k.mahasiswa_id = m.id
+        ORDER BY m.id
+    `, (error, rows, fields) => {
+        if (error) {
+            console.log(error)
+        } else {
+            response.nested(rows, res)
+        }
+    })
+}

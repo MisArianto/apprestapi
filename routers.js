@@ -9,4 +9,7 @@ module.exports = (app) => {
     app.route('/store').post(controller.store)
     app.route('/update').put(controller.update)
     app.route('/delete').delete(controller.destroy)
+
+
+    app.route('/show-mata-kuliah').get(controller.show_group_mata_kuliah)
 }
