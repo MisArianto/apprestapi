@@ -11,7 +11,19 @@ exports.index = (req, res) => {
 exports.show = (req, res) => {
     connection.query('SELECT * FROM mahasiswas', (error, rows, fields) => {
         if (error) {
-            connection.log(error)
+            console.log(error)
+        } else {
+            response.ok(rows, res)
+        }
+    })
+}
+
+// menampilkan data mahasiswa berdasarkan id
+exports.edit = (req, res) => {
+    let id = req.params.id
+    connection.query('SELECT * FROM mahasiswas WHERE id = ?', [id], (error, rows, fields) => {
+        if (error) {
+            console.log(error)
         } else {
             response.ok(rows, res)
         }
