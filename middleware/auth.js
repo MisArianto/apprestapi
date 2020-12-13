@@ -97,5 +97,5 @@ exports.login = (req, res) => {
 
 // membuat halaman
 exports.halamanRahasia = (req, res) => {
-    response.ok('Halaman ini hanya untuk user dengan role = 2!')
+    response.ok('Halaman ini hanya untuk user dengan role = 2!', res)
 }

@@ -8,6 +8,6 @@ router.post('/api/v1/register', auth.registrasi)
 router.post('/api/v1/login', auth.login)
 
 // alamat yang perlu autorisasi
-router.get('/api/v1/rahasia', verifikasi(2), auth.halamanRahasia)
+router.get('/api/v1/rahasia', verifikasi(), auth.halamanRahasia)
 
 module.exports = router
