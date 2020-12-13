@@ -14,10 +14,10 @@ exports.registrasi = (req, res) => {
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, salt),
         role: req.body.role,
-        tanggal: new Date()
+        tanggal_daftar: new Date()
     }
 
-    let query = "SELECT email FROM users ?? WHERE ??"
+    let query = "SELECT email FROM users ?? WHERE ?? = ?"
     let table = ["users", "email", post.email]
 
     query = mysql.format(query, table)
@@ -27,8 +27,8 @@ exports.registrasi = (req, res) => {
             console.log(error)
         } else {
             if (rows.length == 0) {
-                let query = "INSERT INTO ?? SET ??"
-                let table = ['user']
+                let query = "INSERT INTO ?? SET ?"
+                let table = ['users']
                 query = mysql.format(query, table)
                 connection.query(query, post, (error, rows) => {
                     if (error) {
@@ -38,7 +38,7 @@ exports.registrasi = (req, res) => {
                     }
                 })
             } else {
-                response.ok('Email Sudah terdaftar')
+                response.ok('Email Sudah terdaftar', res)
             }
         }
     })
